@@ -1,0 +1,51 @@
+<% layout("/layouts/boilerplate") -%>
+<style>
+     body
+     {
+            padding:0;
+            margin:0;
+            background-color: #183154;
+            color:#fff;
+    }
+</style>
+<body>
+    <!-- <%- include("../includes/navbar.ejs") %> -->
+    <div class="row" >
+        <div class="col-8 offset-2">
+            <h3 class="mt-3">Create New Post</h3>
+            <form method="post" action="/news/<%= news.id %>?_method=PUT">
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" name="news[title]" id="title" class="form-control" value="<%= news.title %>">
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea name="news[description]" id="description"
+                        class="form-control"><%= news.description %></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="image" class="form-label">Image</label>
+                    <input type="text" name="news[image][url]" id="image" value="<%= news.image.url %>" placeholder="enter image address/link"
+                        class="form-control">
+                </div>
+               <div class="row">
+                <div class="mb-3 col-md-4">
+                    <label for="price" class="form-label">Price</label>
+                    <input type="number" name="news[price]" id="price" value="<%= news.price %>" placeholder="price" class="form-control">
+                </div>
+                <div class="mb-3 col-md-8">
+                    <label for="country" class="form-label">Country</label>
+                    <input type="text" name="news[country]" id="country" value="<%= news.country %>" placeholder="country" class="form-control  ">
+                </div>
+               </div>
+                <div class="mb-3">
+                    <label for="location" class="form-label">Location</label>
+                    <input type="text" name="news[location]" value="<%= news.location %>" id="location" placeholder="location" class="form-control">
+                </div>
+                <button class="btn btn-warning">Update</button>
+            </form>
+        </div>
+    </div>
+    <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
