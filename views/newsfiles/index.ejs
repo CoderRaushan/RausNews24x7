@@ -17,8 +17,11 @@
                             <b>
                                 <%= news.title %>
                             </b> <br>
-                            <!-- <%= news.description %> <br> -->
-                            &#8377;<%=news.price.toLocaleString("en-IN") %> /night
+                            <% if (news.price && !isNaN(news.price)) { %>
+                                &#8377;<%= Number(news.price).toLocaleString("en-IN") %> /night
+                              <% } else { %>
+                                Price not available
+                              <% } %>
                         </p>
                     </div>
                 </div>
