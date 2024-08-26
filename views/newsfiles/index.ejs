@@ -1,0 +1,96 @@
+<% layout("/layouts/boilerplate") -%>
+    <style>
+     
+        #filters {
+            display: flex;
+            flex-wrap: wrap;
+            cursor: pointer;
+        }
+
+        .filter {
+            text-align: center;
+            margin-right: 2rem;
+            margin-top: 2rem;
+            opacity: 0.7;
+        }
+
+        .filter:hover {
+            opacity: 1;
+        }
+
+        .filter p {
+            font-size: .9rem;
+        }
+    </style>
+    <div id="filters">
+        <div class="filter">
+            <div><i style="background: none;" class="fa-solid fa-fire"></i></div>
+            <p>Trending</p>
+        </div>
+        <div class="filter">
+            <div><i style="background: none;" class="fa-solid fa-baseball"></i></div>
+            <p>Entertainment</p>
+        </div>
+        <div class="filter">
+            <div><i style="background: none;" class="fa-solid fa-baseball-bat-ball"></i></div>
+            <p>Cricket</p>
+        </div>
+        <div class="filter">
+            <div><i style="background: none;" class="fa-solid fa-futbol"></i></div>
+            <p>FootBall</p>
+        </div>
+        <div class="filter">
+            <div><i style="background: none;" class="fa-solid fa-city"></i></div>
+            <p>Cities</p>
+        </div>
+        <div class="filter">
+            <div><i style="background: none;" class="fa-solid fa-school"></i></div>
+            <p>Education</p>
+        </div>
+        <div class="filter">
+            <div><i style="background: none;" class="fa-solid fa-globe"></i></div>
+            <p>World News</p>
+        </div>
+        <div class="filter">
+            <div><i style="background: none;" class="fa-solid fa-flask"></i></div>
+            <p>Science</p>
+        </div>
+        <div class="filter">
+            <div><i style="background: none;" class="fa-solid fa-microscope"></i></div>
+            <p>Election</p>
+        </div>
+        <div class="filter">
+            <div><i style="background: none;" class="fa-solid fa-cloud"></i></i></div>
+            <p>Weather</p>
+        </div>
+        <div class="filter">
+            <div><i style="background: none;" class="fa-solid fa-microchip"></i></div>
+            <p>Technology</p>
+        </div>
+
+
+    </div>
+    <div class="card_parent_container row-col-lg-3  row-col-md-3 row-col-sn-1 mt-3">
+        <% for(let news of allnews) { %>
+            <a class="card_anchor_tag" href="news/<%= news._id %>">
+                <div class="card" style="width: 20rem;">
+                    <img class="card-img-top" src="<%= news.image.url %>" style="height: 20rem;"
+                        alt="<%=news.image.filename %>">
+                    <div class="card-img-overlay"></i><i class="fa-solid fa-heart"></i><i
+                            class="fa-solid fa-arrow-up-from-bracket"></i></div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            <b>
+                                <%= news.title %>
+                            </b> <br>
+                            <% if (news.price && !isNaN(news.price)) { %>
+                                &#8377;<%= Number(news.price).toLocaleString("en-IN") %> /night
+                                    <% } else { %>
+                                        Price not available
+                                        <% } %>
+                        </p>
+                    </div>
+                </div>
+            </a>
+            <%} %>
+    </div>

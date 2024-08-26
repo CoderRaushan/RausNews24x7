@@ -1,0 +1,117 @@
+<% layout("/layouts/boilerplate") -%>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            background-color: #7a8ddb;
+            color: #fff;
+        }
+    </style>
+
+    <body>
+        <div>
+            <div class="col col-lg-8 offset-lg-2">
+                <h3>&nbsp;<%=news.title %>
+                </h3>
+                <div class="card">
+                    <img class="card-img-top custom_img" src="<%=news.image.url %>" alt="<%=news.image.filename %>">
+                    <div class="card-body">
+                        <p class="card-text"> Owner : <i>
+                                <%=news.owner.username %>
+                            </i></p>
+                        <p class="card-text">
+                            <%=news.description %>
+                        </p>
+                        <p class="card-text">&#8377;<%=news.price.toLocaleString("en-IN") %></p>
+                        <p class="card-text">
+                            <%=news.location %>
+                        </p>
+                        <p class="card-text">
+                            <%=news.country %>
+                        </p>
+                    </div>
+                    <% if(currUser && currUser._id.equals(news.owner._id)) {%>
+                        <div class="d-flex align-items-stretch">
+                            <form method="put" action="/news/<%=news._id%>/edit">
+                                <button class="btn btn-warning">Update</button>
+                            </form> &nbsp; &nbsp;
+                            <form method="post" action="/news/<%=news._id %>?_method=delete">
+                                <button class="btn btn-danger">delete</button>
+                            </form>
+                        </div>
+                        <% } %>
+                            <div class="col-8 offset-2">
+                                <h4>Leave a review</h4>
+                                <% if(currUser){ %>
+                                    <form action="/news/<%= news._id %>/reviews" method="post" novalidate
+                                        class="needs-validation">
+                                        <div>
+                                            <label for="rating" class="form-label">Rating:</label>
+                                            <fieldset class="starability-slot">
+                                                <input type="radio" id="no-rate" class="input-no-rate"
+                                                    name="newsreview[rating]" value="1" checked
+                                                    aria-label="No rating." />
+                                                <input type="radio" id="first-rate1" name="newsreview[rating]"
+                                                    value="1" />
+                                                <label for="first-rate1" title="Terrible">1 star</label>
+                                                <input type="radio" id="first-rate2" name="newsreview[rating]"
+                                                    value="2" />
+                                                <label for="first-rate2" title="Not good">2 stars</label>
+                                                <input type="radio" id="first-rate3" name="newsreview[rating]"
+                                                    value="3" />
+                                                <label for="first-rate3" title="Average">3 stars</label>
+                                                <input type="radio" id="first-rate4" name="newsreview[rating]"
+                                                    value="4" />
+                                                <label for="first-rate4" title="Very good">4 stars</label>
+                                                <input type="radio" id="first-rate5" name="newsreview[rating]"
+                                                    value="5" />
+                                                <label for="first-rate5" title="Amazing">5 stars</label>
+                                            </fieldset>
+                                            <div class="invalid-feedback">
+                                                Please provide a rating.
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <label class="form-label" for="comment">Comment:</label> <br> <br>
+                                            <textarea name="newsreview[comment]" id="comment" rows="5" cols="40"
+                                                class="form-control" required></textarea>
+                                            <div class="invalid-feedback">
+                                                Please add a comment.
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <button class="btn btn-warning" type="submit">Post</button>
+                                    </form>
+                                    <% } %>
+                                        <hr>
+                                        <p><b>All reviews</b></p>
+                                        <div class="row">
+                                            <% for(review of news.reviews) {%>
+                                                <div class="card col-lg-5 ms-lg-4 mb-3"
+                                                    style="border: 2px solid black; box-shadow: 2px 3px 5px black;">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">@<%= review.author.username %>
+                                                        </h5>
+                                                        <p class="starability-result card-text"
+                                                            data-rating="<%=review.rating %>">
+                                                            Rated: <%=review.rating %> stars
+                                                        </p>
+                                                        <p class="card-text">
+                                                            <%=review.comment %>
+                                                        </p>
+                                                        <form
+                                                            action="/news/<%= news._id %>/reviews/<%= review._id %>?_method=delete"
+                                                            method="post">
+                                                            <button class="btn btn-sm btn-danger">Delete</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                                <%}%>
+                                        </div>
+                            </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <br>
+    </body>

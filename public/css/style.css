@@ -1,0 +1,110 @@
+body
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* navbar css styles  */
+.navbar
+{
+    height: 5rem;
+}
+.nav-link
+{
+    color: #000000;
+    background-color:#f7f9fa;
+}
+/* footer css styles */
+.footer_info a
+{
+ text-decoration: none;
+ color: #000000;
+}
+
+.footer_info a:hover
+{
+ text-decoration:underline;
+}
+
+.footer_info
+{
+    height: 8rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+
+.card_parent_container
+{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.social_medias,.footer_linkes,.footer_brandname
+{  
+    text-align: center;
+    font-size: 1.1rem;
+    width: 100%;
+}
+.social_medias i{
+    margin-right: 1rem;
+}
+
+/* card styling  */
+.card
+{  
+    cursor: pointer;
+    border: none;
+    margin-bottom: 2rem;
+    padding:.5rem;
+}
+.card-img-top
+{
+    border-radius: 1rem;
+    width: 100%;
+    object-fit: cover;
+}
+.card-body
+{
+    padding: 0;
+    font-weight: 500;
+}
+.card_anchor_tag
+{
+    text-decoration: none;
+}
+
+/* share icon style  */
+.card-img-overlay
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+}
+
+.fa-solid,.fa-heart
+{
+    background-color:#ccd4d9;
+    padding: .6rem;
+    border-radius:50%;
+    font-size:.9rem ;
+    margin-top: 5px;
+    /* margin-right: 5px; */
+}
+.fa-solid:hover
+{
+    background-color: white;
+    color:red;
+}
+
+/* show page  */
+.custom_img
+{
+    height: 400px;
+}
