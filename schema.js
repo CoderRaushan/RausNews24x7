@@ -5,7 +5,7 @@ module.exports.newsSchema = Joi.object({
         description: Joi.string().required(),
         location: Joi.string().required(),
         country: Joi.string().required(),
-        price: Joi.number().required().min(0),
+        price: Joi.number().min(0),
         image: Joi.string(),
     }).required()       
 });
