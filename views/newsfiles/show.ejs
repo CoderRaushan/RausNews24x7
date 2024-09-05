@@ -22,7 +22,11 @@
                         <p class="card-text">
                             <%=news.description %>
                         </p>
-                        <p class="card-text">&#8377;<%=news.price.toLocaleString("en-IN") %></p>
+                        <p class="card-text">
+                            <% if(news.price) {%>
+                                &#8377;<%=news.price.toLocaleString("en-IN") %>
+                            <% }%>
+                        </p>
                         <p class="card-text">
                             <%=news.location %>
                         </p>
