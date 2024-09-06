@@ -72,7 +72,7 @@ const newsschema = new Schema({
     country: String,
     category: {
         type: String,
-        enum: ["Cricket", "Entertainment", "Politics", "Education"], // Add your categories here
+        enum: ["Trending", "Entertainment", "Cricket", "FootBall","Cities","Education","WorldNews","Science","Election","Weather","Technology","Business","Health","Sports","Environment","Crime","Lifestyle","Opinion"], // Add your categories here
     },
     reviews: [
         {

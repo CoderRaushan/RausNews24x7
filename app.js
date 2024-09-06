@@ -122,7 +122,7 @@ app.all("*", (req, res, next) => {
 //error middleware
 app.use((err, req, res, next) => {
     const { status = 500, message = "Internal Server Error" } = err;
-    //  res.status(status).send(message);
+    // res.status(status).send(message);
     res.status(status).render("newsfiles/error.ejs", { message });
 });
 

@@ -17,7 +17,7 @@ module.exports.newsSchema = Joi.object({
         description: Joi.string().required(),
         location: Joi.string().required(),
         country: Joi.string().required(),
-        category: Joi.string().required().valid("Cricket", "Entertainment", "Politics", "Education"), // Add your categories here
+        category: Joi.string().required().valid("Trending", "Entertainment", "Cricket", "FootBall","Cities","Education","WorldNews","Science","Election","Weather","Technology","Business","Health","Sports","Environment","Crime","Lifestyle","Opinion"), // Add your categories here
         image: Joi.string(),
     }).required()
 });

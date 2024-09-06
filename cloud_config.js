@@ -10,7 +10,7 @@ const storage = new CloudinaryStorage({
     cloudinary: cloudinary,
     params: {
         folder: 'RausNews24x7',
-        allowed_formats: ["png", "jpg", "jpeg", "WEBP"],
+        allowed_formats: ["png", "jpg", "jpeg", "webp","avip"],
     },
 });
 
