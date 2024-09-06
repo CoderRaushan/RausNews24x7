@@ -52,20 +52,22 @@
                     <div class="mb-3">
                         <label for="description" class="form-label">Description</label>
                         <textarea name="news[description]" id="description" placeholder="description"
-                            class="form-control" required></textarea>
+                            class="form-control" required style="white-space: pre-wrap; height: 200px;"></textarea>
                         <div class="invalid-feedback">Description name should be valid</div>
                     </div>
-                    <div class="mb-3 col-md-8">
-                        <label for="country" class="form-label">Country</label>
-                        <input type="text" name="news[country]" id="country" placeholder="country" class="form-control"
-                            required>
-                        <div class="invalid-feedback">Country name should be valid</div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="location" class="form-label">Location</label>
-                        <input type="text" name="news[location]" id="location" placeholder="location"
-                            class="form-control" required>
-                        <div class="invalid-feedback">Location name should be valid</div>
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                            <label for="country" class="form-label">Country</label>
+                            <input type="text" name="news[country]" id="country" placeholder="country" class="form-control"
+                                required>
+                            <div class="invalid-feedback">Country name should be valid</div>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="location" class="form-label">Location</label>
+                            <input type="text" name="news[location]" id="location" placeholder="location"
+                                class="form-control" required>
+                            <div class="invalid-feedback">Location name should be valid</div>
+                        </div>
                     </div>
                     <button class="btn btn-success">Post</button>
                 </form>

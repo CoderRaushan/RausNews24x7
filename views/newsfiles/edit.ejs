@@ -50,29 +50,28 @@
                             class="form-control">
                         <div class="invalid-feedback">Upload Your Image</div>
                     </div>
-                    <div class="mb-3">
-                        <label for="description" class="form-label">Description</label>
-                        <textarea name="news[description]" id="description" required
-                            class="form-control"><%= news.description %></textarea>
-                        <div class="invalid-feedback">Description should be valid</div>
-                    </div>
                     <div class="div">
                         <img src="<%= upadateImgLink %>" alt="news image">
                     </div>
-
-
-                    <div class="mb-3 col-md-8">
-                        <label for="country" class="form-label">Country</label>
-                        <input type="text" name="news[country]" required id="country" value="<%= news.country %>"
-                            placeholder="country" class="form-control">
-                        <div class="invalid-feedback">Country name should be valid</div>
-                    </div>
-
                     <div class="mb-3">
-                        <label for="location" class="form-label">Location</label>
-                        <input type="text" name="news[location]" required value="<%= news.location %>" id="location"
-                            placeholder="location" class="form-control">
-                        <div class="invalid-feedback">Location should be valid</div>
+                        <label for="description" class="form-label">Description</label>
+                        <textarea name="news[description]" id="description" placeholder="Description"
+                            class="form-control" required style="white-space: pre-wrap; height: 200px;"><%= news.description %></textarea>
+                        <div class="invalid-feedback">Description should be valid</div>
+                    </div>
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                            <label for="country" class="form-label">Country</label>
+                            <input type="text" name="news[country]" required id="country" value="<%= news.country %>"
+                                placeholder="country" class="form-control">
+                            <div class="invalid-feedback">Country name should be valid</div>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="location" class="form-label">Location</label>
+                            <input type="text" name="news[location]" required value="<%= news.location %>" id="location"
+                                placeholder="location" class="form-control">
+                            <div class="invalid-feedback">Location should be valid</div>
+                        </div>
                     </div>
                     <button class="btn btn-warning">Update</button>
                 </form>
