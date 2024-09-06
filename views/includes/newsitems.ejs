@@ -1,0 +1,84 @@
+<style>
+    #filters {
+        display: flex;
+        cursor: pointer;
+        overflow-x: auto;
+        margin-left: 12px;
+        scrollbar-width: none;
+        /* Firefox */
+    }
+
+    #filters::-webkit-scrollbar {
+        display: none;
+        /* Chrome, Safari, Edge */
+    }
+
+    .filter {
+        text-align: center;
+        margin-right: 2rem;
+        margin-top: 2rem;
+        opacity: 0.7;
+    }
+
+    .filter:hover {
+        opacity: 1;
+    }
+
+    .filter p {
+        font-size: .9rem;
+    }
+
+    .filter a {
+        text-decoration: none;
+        color: black;
+    }
+</style>
+<div id="filters">
+    <div class="filter">
+        <div><i style="background: none;" class="fa-solid fa-fire"></i></div>
+        <p>Trending</p>
+    </div>
+    <div class="filter">
+        <div><i style="background: none;" class="fa-solid fa-baseball"></i></div>
+        <p>Entertainment</p>
+    </div>
+    <div class="filter">
+        <a href="/news/cricket">
+            <div><i style="background: none;" class="fa-solid fa-baseball-bat-ball"></i></div>
+            cricket
+        </a>
+    </div>
+    <div class="filter">
+        <div><i style="background: none;" class="fa-solid fa-futbol"></i></div>
+        <p>FootBall</p>
+    </div>
+    <div class="filter">
+        <div><i style="background: none;" class="fa-solid fa-city"></i></div>
+        <p>Cities</p>
+    </div>
+    <div class="filter">
+        <div><i style="background: none;" class="fa-solid fa-school"></i></div>
+        <p>Education</p>
+    </div>
+    <div class="filter">
+        <div><i style="background: none;" class="fa-solid fa-globe"></i></div>
+        <p>World News</p>
+    </div>
+    <div class="filter">
+        <div><i style="background: none;" class="fa-solid fa-flask"></i></div>
+        <p>Science</p>
+    </div>
+    <div class="filter">
+        <div><i style="background: none;" class="fa-solid fa-microscope"></i></div>
+        <p>Election</p>
+    </div>
+    <div class="filter">
+        <div><i style="background: none;" class="fa-solid fa-cloud"></i></i></div>
+        <p>Weather</p>
+    </div>
+    <div class="filter">
+        <div><i style="background: none;" class="fa-solid fa-microchip"></i></div>
+        <p>Technology</p>
+    </div>
+
+</div>

@@ -7,6 +7,7 @@ const multer  = require('multer');
 const {storage}=require("../cloud_config.js");
 const upload = multer({storage});
 
+
 // combining (index) route and (create post) in single router
 router.route("/")
 .get(wrapAsyn(newsController.index))
@@ -18,6 +19,10 @@ router.route("/")
 // new route
 router.get("/new",isLoggedIn,newsController.newsPostForm);
 
+// cricket search raoute
+router.route("/cricket")
+  .get(wrapAsyn(newsController.cricketnews));
+
 // combining (show specific place data) (update route) (delete route) in one router
 router.route("/:id")
 .get(wrapAsyn(newsController.newsShow))
@@ -27,7 +32,9 @@ router.route("/:id")
     wrapAsyn(newsController.UpdateNews))
 .delete(isLoggedIn,isOwner, wrapAsyn(newsController.deleteNews))
 
-// edit route
+
+
+// edit route 
 router.get("/:id/edit",
     isLoggedIn,
     isOwner, 

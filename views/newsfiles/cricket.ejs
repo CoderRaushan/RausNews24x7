@@ -1,16 +1,17 @@
 <% layout("/layouts/boilerplate") -%>
+   
     <div class="card_parent_container row-col-lg-3  row-col-md-3 row-col-sn-1 mt-3">
-        <% for(let news of allnews) { %>
-            <a class="card_anchor_tag" href="news/<%= news._id %>">
+        <% for(let cricket of news) { %>
+            <a class="card_anchor_tag" href="<%= cricket._id %>">
                 <div class="card" style="width: 20rem;">
-                    <img class="card-img-top" src="<%= news.image.url %>" style="height: 20rem;"
-                        alt="<%=news.image.filename %>">
+                    <img class="card-img-top" src="<%= cricket.image.url %>" style="height: 20rem;"
+                        alt="<%=cricket.image.filename %>">
                     <div class="card-img-overlay"></i><i class="fa-solid fa-heart"></i><i
                             class="fa-solid fa-arrow-up-from-bracket"></i></div>
                     <div class="card-body">
                         <p class="card-text">
                             <b>
-                                <%= news.title %>
+                                <%= cricket.title %>
                             </b>
                         </p>
                     </div>
@@ -18,3 +19,5 @@
             </a>
             <%} %>
     </div>
+
+    

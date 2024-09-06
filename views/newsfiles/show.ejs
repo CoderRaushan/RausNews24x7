@@ -11,7 +11,7 @@
     <body>
         <div>
             <div class="col col-lg-8 offset-lg-2">
-                <h3>&nbsp;<%=news.title %>
+                <h3>&nbsp;<%= news.title %>
                 </h3>
                 <div class="card">
                     <img class="card-img-top custom_img" src="<%=news.image.url %>" alt="<%=news.image.filename %>">
@@ -21,11 +21,6 @@
                             </i></p>
                         <p class="card-text">
                             <%=news.description %>
-                        </p>
-                        <p class="card-text">
-                            <% if(news.price) {%>
-                                &#8377;<%=news.price.toLocaleString("en-IN") %>
-                            <% }%>
                         </p>
                         <p class="card-text">
                             <%=news.location %>
@@ -106,7 +101,9 @@
                                                         <form
                                                             action="/news/<%= news._id %>/reviews/<%= review._id %>?_method=delete"
                                                             method="post">
+                                                            <% if(currUser && currUser._id.equals(news.owner._id)) {%>
                                                             <button class="btn btn-sm btn-danger">Delete</button>
+                                                            <% } %>
                                                         </form>
                                                     </div>
                                                 </div>

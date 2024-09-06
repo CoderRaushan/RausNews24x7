@@ -66,8 +66,7 @@
     };
 
     module.exports.UpdateNews = async (req, res) => {
-        if (!req.body.news) {
-            throw new expressError(400, "send valid data for news");
+        if (!req.body.news) {            throw new expressError(400, "send valid data for news");
         }
         const { id } = req.params;
         if (id) {
@@ -102,4 +101,10 @@
             console.log("cannot get id to delete data ");
             res.status(400).send(err);
         }
+    };
+
+    module.exports.cricketnews = async (req, res) => {
+        const cricketnews = await news.find({ category: { $regex: 'Cricket', $options: 'i' } }); // Case-insensitive search
+        console.log(cricketnews);
+        res.render("newsfiles/cricket.ejs", { news: cricketnews });
     };
