@@ -1,31 +1,7 @@
-<style>
-   #btn-search
-   {
-    border-radius: 25rem;
-    padding: 0 1rem 0 1rem;
-   }
-  #btn-search i
-  {
-    background: none;
-    margin-right: 6px;
-    display: inline;
-  }
-  #btn-search i:hover
-  {
-    color: white;
-  }
-  #logo
-  {
-    margin-top: -6px;
-    border-radius: 50%;
-    height: 40px;
-    width: 40px;
-  }
 
-</style>
-<nav class="navbar border-bottom navbar-expand-md bg-body-tertiary sticky-top">
+<nav class="navbar border-bottom navbar-expand-md sticky-top ">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/news"><img id="logo" src="/logos/rausnews24x7_l1.png" alt="logo"> RausNews24x7</a>
+    <a class="navbar-brand" href="/news"><img id="logo" src="/logos/rausnews24x7_logo_2.png" alt="logo"> RausNews24x7</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -37,18 +13,18 @@
       <div class="navbar-nav ms-auto">
         <form class="d-flex" role="search">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button id="btn-search" class="btn btn-outline-success" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
+          <button id="btn-search" class="btn btn-primary" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
         </form>
       </div>
 
       <div class="navbar-nav ms-auto">
         <a class="nav-link" href="/news/new">Post News</a>
         <% if(!currUser) { %>
-          <a class="nav-link" href="/signup"><b>Sign Up</b> </a>
-          <a class="nav-link" href="/login"><b>Log In</b> </a>
+          <a class="nav-link_for_login_signup" href="/signup"><b>Sign Up</b> </a>
+          <a class="nav-link_for_login_signup" href="/login"><b>Log In</b> </a>
           <%} %>
             <% if(currUser) { %>
-              <a class="nav-link" href="/logout"><b>Log Out</b></a>
+              <a class="nav-link_for_login_signup" href="/logout"><b>Log Out</b></a>
               <%} %>
       </div>
     </div>
