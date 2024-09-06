@@ -76,6 +76,9 @@ router.route("/Lifestyle")
 router.route("/Opinion")
 .get(wrapAsyn(newsController.OpinionNews));
 
+//for sitemap route
+router.route("/sitemap")
+.get(wrapAsyn(newsController.sitemapNews));
 // combining (show specific place data) (update route) (delete route) in one router
 router.route("/:id")
 .get(wrapAsyn(newsController.newsShow))
