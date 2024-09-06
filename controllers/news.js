@@ -1,4 +1,5 @@
 const news = require("../models/news.js");
+const path = require('path');
 const expressError = require("../utils/expressErrors.js");
 module.exports.index = async (req, res) => {
     let allnews = await news.find({});
@@ -201,15 +202,9 @@ module.exports.OpinionNews = async (req, res) => {
     console.log(cricketnews);
     res.render("newsfiles/newsitems.ejs", { allnews: cricketnews });
 }
-const path = require('path');
-
-
 module.exports.sitemapNews = async (req, res) => {
     console.log("Serving sitemap.xml file");
-
-    // Adjust the path to the correct location in the views/newsfiles folder
     const filePath = path.join(__dirname, '../views/newsfiles/sitemap.xml');
-    
     res.sendFile(filePath, (err) => {
         if (err) {
             console.error("File not found or error serving file:", err);
