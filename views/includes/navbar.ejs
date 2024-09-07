@@ -1,31 +1,38 @@
-
-<nav class="navbar border-bottom navbar-expand-md sticky-top ">
+<nav class="navbar  sticky-top navbar-expand-md">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/news"><img id="logo" class="logo_photo" src="/logos/rausnews24x7_logo_2.png" alt="logo"> RausNews24x7</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+    <a class="navbar-brand" href="/news">
+      <img id="logo" class="logo_photo" src="/logos/rausnews24x7_logo_2.png" alt="logo">
+      RausNews24x7
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+      aria-controls="offcanvasNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link" href="/news">All News</a>
+    <div class="sidebar offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
+      aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header ">
+        <h5 class="offcanvas-title text-white" id="offcanvasNavbarLabel">RausNews24x7</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
-
-      <div class="navbar-nav ms-auto">
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button id="btn-search" class="btn btn-primary" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
-        </form>
-      </div>
-
-      <div class="navbar-nav ms-auto">
-        <a class="nav-link" href="/news/new">Post News</a>
-        <% if(!currUser) { %>
-          <a class="nav-link_for_login_signup" href="/signup"><b>Sign Up</b> </a>
-          <a class="nav-link_for_login_signup" href="/login"><b>Log In</b> </a>
-          <%} %>
-            <% if(currUser) { %>
-              <a class="nav-link_for_login_signup" href="/logout"><b>Log Out</b></a>
-              <%} %>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-center  flex-grow-1 pe-3 ">
+          <form class="d-flex" role="search">
+            <input class="form-control  mt-2" type="search" placeholder="Search" aria-label="Search" style="height:2.1rem;"> &nbsp; &nbsp;
+            <button  id="btn-search" type="submit" class=" mt-2" style="height:2.1rem;"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+          </form>
+        </ul>
+        <div class="navbar-nav ">
+          <a class="nav-link" aria-current="page" href="/news">All news</a>
+          <a class="nav-link" href="/news/new">Post News</a>
+          <% if(!currUser) { %>
+            <a class="nav-link_for_login_signup" href="/signup"><b>Sign Up</b> </a>
+            <a class="nav-link_for_login_signup" href="/login"><b>Log In</b> </a>
+            <%} %>
+              <% if(currUser) { %>
+                <a class="nav-link_for_login_signup" href="/logout"><b>Log Out</b></a>
+                <%} %>
+        </div>
       </div>
     </div>
   </div>
