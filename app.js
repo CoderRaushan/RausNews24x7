@@ -109,9 +109,10 @@ app.use((req, res, next) => {
 
 
 // importing news routes from  news.js
-app.use("/",newsRouter);
+
 app.use("/news", newsRouter);
 app.use("/news/:id/reviews",reviewRouter);
+app.use("/",newsRouter);
 app.use("/",userRouter);
 
  
