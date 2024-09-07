@@ -213,6 +213,16 @@ module.exports.sitemapNews = async (req, res) => {
     });
 };
 
+module.exports.robotsNews = async (req, res) => {
+    console.log("Serving robots.xml file");
+    const filePath = path.join(__dirname, '../views/newsfiles/robots.txt');
+    res.sendFile(filePath, (err) => {
+        if (err) {
+            console.error("File not found or error serving file:", err);
+            res.status(404).send("robots not found");
+        }
+    });
+};
 
 
 

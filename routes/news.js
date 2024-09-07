@@ -79,6 +79,11 @@ router.route("/Opinion")
 //for sitemap route
 router.route("/sitemap")
 .get(wrapAsyn(newsController.sitemapNews));
+
+//for robots.txt file route
+router.route("/robots")
+.get(wrapAsyn(newsController.robotsNews));
+
 // combining (show specific place data) (update route) (delete route) in one router
 router.route("/:id")
 .get(wrapAsyn(newsController.newsShow))
