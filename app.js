@@ -112,9 +112,8 @@ app.use((req, res, next) => {
 
 app.use("/news", newsRouter);
 app.use("/news/:id/reviews",reviewRouter);
-app.use("/",newsRouter);
 app.use("/",userRouter);
-
+app.use("/",newsRouter);
  
 //error for wrong route
 app.all("*", (req, res, next) => {
