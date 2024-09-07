@@ -89,7 +89,9 @@ body
     #offcanvasNavbar {
       width: 300px;
     }
-
+    .nav-link:hover {
+      border-bottom: none
+    }
   }
 /* footer css styles */
 .footer_info a
