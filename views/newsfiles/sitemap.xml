@@ -1,4 +1,5 @@
-<?xml version='1.0' encoding='UTF-8'?><urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
+<?xml version='1.0' encoding='UTF-8'?>
+<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
 <url><loc>https://rausnews24x7.onrender.com/news</loc></url>
 <url><loc>https://rausnews24x7.onrender.com/news/Business</loc></url>
 <url><loc>https://rausnews24x7.onrender.com/news/Cities</loc></url>
@@ -18,7 +19,7 @@
 <url><loc>https://rausnews24x7.onrender.com/news/Trending</loc></url>
 <url><loc>https://rausnews24x7.onrender.com/news/Weather</loc></url>    
 <url><loc>https://rausnews24x7.onrender.com/news/WorldNews</loc></url>
-<url><loc>https://rausnews24x7.onrender.com/news/new</loc></url></urlset>
+<url><loc>https://rausnews24x7.onrender.com/news/new</loc></url>
 <url><loc>https://rausnews24x7.onrender.com/news/66dada364cb259b6e977c259</loc></url>
 <url><loc>https://rausnews24x7.onrender.com/news/66dadaf54cb259b6e977c272</loc></url>
 <url><loc>https://rausnews24x7.onrender.com/news/66dae4059584682cb5c4f2de</loc></url>
@@ -34,3 +35,4 @@
 <url><loc>https://rausnews24x7.onrender.com/news/66daf25c9f17e14d83b3bf06</loc></url>
 <url><loc>https://rausnews24x7.onrender.com/news/66db2bf66b70b28ddb528340</loc></url>
 <url><loc>https://rausnews24x7.onrender.com/news/66db2e0c7535b772eb476208</loc></url>
+</urlset>
