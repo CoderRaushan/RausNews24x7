@@ -81,7 +81,7 @@ body
 
     .nav-link_for_login_signup {
       border: none;
-      background-color: #0014cc;
+      background-color: #581c84;
       padding-left: 0;
       color: white;
     }
@@ -171,4 +171,11 @@ body
 .custom_img
 {
     height: 400px;
+}
+
+/* flash message */
+.alert
+{
+  background-color:#581c84;
+  color: white;
 }

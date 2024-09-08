@@ -1,6 +1,7 @@
 const news = require("../models/news.js");
 const path = require('path');
 const expressError = require("../utils/expressErrors.js");
+
 module.exports.index = async (req, res) => {
     let allnews = await news.find({});
     res.render("newsfiles/index.ejs", { allnews });
