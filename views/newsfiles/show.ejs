@@ -28,6 +28,9 @@
                         <p class="card-text">
                             <%=news.country %>
                         </p>
+                        <p class="card-text">
+                            pdf link:<%=news.image.url %>
+                        </p>
                     </div>
                     <% if(currUser && currUser._id.equals(news.owner._id)) {%>
                         <div class="d-flex align-items-stretch">
@@ -39,7 +42,7 @@
                             </form>
                         </div>
                         <% } %>
-                            <div class="col-8 offset-2">
+                            <!-- <div class="col-8 offset-2">
                                 <h4>Leave a review</h4>
                                 <% if(currUser){ %>
                                     <form action="/news/<%= news._id %>/reviews" method="post" novalidate
@@ -102,14 +105,14 @@
                                                             action="/news/<%= news._id %>/reviews/<%= review._id %>?_method=delete"
                                                             method="post">
                                                             <% if(currUser && currUser._id.equals(news.owner._id)) {%>
-                                                            <button class="btn btn-sm btn-danger">Delete</button>
-                                                            <% } %>
+                                                                <button class="btn btn-sm btn-danger">Delete</button>
+                                                                <% } %>
                                                         </form>
                                                     </div>
                                                 </div>
                                                 <%}%>
                                         </div>
-                            </div>
+                            </div> -->
                 </div>
             </div>
         </div>

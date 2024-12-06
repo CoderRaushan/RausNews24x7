@@ -83,9 +83,10 @@ async function main() {
 }
 
 
-// app.get("/", (req, res) => {
-//     res.send("root page");
-// });
+app.get("/", (req, res) => {
+    console.log("hi");
+    res.render("/newsfiles/robots.txt");
+});
 
 app.use((req, res, next) => {
     res.locals.successMsg = req.flash("success");
@@ -108,10 +109,11 @@ app.use((req, res, next) => {
 
 
 // importing news routes from  news.js
-app.use("/news", newsRouter);
-app.use("/news/:id/reviews",reviewRouter);  
-app.use("/",userRouter);
 
+app.use("/news", newsRouter);
+app.use("/news/:id/reviews",reviewRouter);
+app.use("/",userRouter);
+app.use("/",newsRouter);
  
 //error for wrong route
 app.all("*", (req, res, next) => {
