@@ -13,7 +13,6 @@ const storage = new CloudinaryStorage({
         allowed_formats: ["png", "jpg", "jpeg", "webp", "avif", "gif", "svg","mp4","mp3","docx", "doc", "xlsx", "xls", "ppt", "pptx"]
     },
 });
-
 module.exports={
     cloudinary,
     storage,
