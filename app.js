@@ -97,7 +97,7 @@ passport.deserializeUser(User.deserializeUser());
 async function main() {
     try {
       await mongoose.connect(dblink); 
-      await cacheDataOnStartup(); 
+      
     } catch (err) {
       console.error('Error connecting to MongoDB or caching data:', err);
     }
@@ -142,6 +142,7 @@ app.use((err, req, res, next) => {
 
 
 
-app.listen(8890, () => {
+app.listen(8890,async () => {
+    await cacheDataOnStartup(); 
     console.log("port is listenning at 8890");
 });
