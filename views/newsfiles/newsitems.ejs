@@ -4,7 +4,6 @@
             <a class="card_anchor_tag" href="<%= news._id %>">
                 <div class="card" style="width: 20rem;">
                     <% 
-                            // Extract file extension
                             const fileExtension = news.image.url.split('.').pop().toLowerCase(); 
                             // Define supported formats
                             const imageFormats = ["png", "jpg", "jpeg", "webp", "avif"];

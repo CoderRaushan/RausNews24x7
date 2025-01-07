@@ -93,12 +93,9 @@ router.route("/:id")
     wrapAsyn(newsController.UpdateNews))
 .delete(isLoggedIn,isOwner, wrapAsyn(newsController.deleteNews))
 
-
-
 // edit route 
 router.get("/:id/edit",
     isLoggedIn,
     isOwner, 
     wrapAsyn(newsController.editFormRenderNews));
-
 module.exports=router;

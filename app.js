@@ -22,6 +22,9 @@ const passport=require("passport");
 const LocalStratgy=require("passport-local");
 const User=require("./models/user.js");
 const dblink=process.env.ATLASDB_URL;
+// const redis = require('redis');
+const redisClient=require("./controllers/news.js")
+const News=require('./models/news.js')
 // Middleware to parse URL-encoded data
 app.use(bodyParser.urlencoded({ extended: true }));
 // Set view engine
@@ -68,23 +71,43 @@ app.use(passport.session());
 passport.use(new LocalStratgy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
- 
+// const redisClient = redis.createClient({
+//   url: process.env.REDIS_URI,
+//   password:process.env.REDIS_PASSWORD,
+// });
+// redisClient.connect().then(() => {
+//   console.log("Redis connected successfully!");
+// }).catch(err => {
+//   console.error('Error connecting to Redis:', err);
+// });
 
-// const mongo_url = "mongodb://127.0.0.1:27017/rausnews24X7";
 
+ async function cacheDataOnStartup() 
+ {
+  try {
+    cachedNews = await News.find({});
+    await redisClient.set('newsData', JSON.stringify(cachedNews)); 
+    console.log('News data cached successfully.');
+  } catch (err) 
+  {
+    console.error('Error caching news data:', err);
+  }
+};
 
+async function main() {
+    try {
+      await mongoose.connect(dblink); 
+      await cacheDataOnStartup(); 
+    } catch (err) {
+      console.error('Error connecting to MongoDB or caching data:', err);
+    }
+  }
 main().then(() => {
     console.log("connected to mongodb");
 }).catch((err) => {
     console.log(err);
 })
-async function main() {
-    await mongoose.connect(dblink);
-}
-
-
 app.get("/", (req, res) => {
-    console.log("hi");
     res.render("/newsfiles/robots.txt");
 });
 
@@ -98,20 +121,7 @@ app.use((req, res, next) => {
 
 
 
-//demo 
-// app.get("/news/demo",async(req,res)=>
-// {
-//    let fakeUser=({
-//     email:"raushankumar344@gmail.com",
-//     username:"raushan@124"
-//    });
-//    let registerUser=await User.register(fakeUser,"raushan_234@%#*k");
-//    res.send(registerUser);
-// });
-
-
 // importing news routes from  news.js
-
 app.use("/news", newsRouter);
 app.use("/news/:id/reviews",reviewRouter);
 app.use("/",userRouter);

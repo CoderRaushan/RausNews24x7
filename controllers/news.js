@@ -1,10 +1,33 @@
 const news = require("../models/news.js");
 const path = require('path');
 const expressError = require("../utils/expressErrors.js");
+const redis = require('redis');
+const redisClient = redis.createClient({
+  url: 'redis://redis-16422.c10.us-east-1-4.ec2.redns.redis-cloud.com:16422',
+  password:"WzGQfUjCYvGIu0v07RNBrSmDNa8VGmXf",
+});
 
-module.exports.index = async (req, res) => {
-    let allnews = await news.find({});
-    res.render("newsfiles/index.ejs", { allnews });
+redisClient.connect().then(() => {
+  console.log("Redis connected successfully!");
+}).catch(err => {
+  console.error('Error connecting to Redis:', err);
+});
+module.exports = redisClient;
+module.exports.index = async (req, res) => 
+{
+    try {
+        const cachedData = await redisClient.get('newsData');
+        if (cachedData) {
+            return res.render("newsfiles/newsitems.ejs", { allnews: JSON.parse(cachedData) });
+        }
+        const news = await news.find({});
+        await redisClient.set('newsData', JSON.stringify(cachedNews)); 
+        console.log('News data cached successfully.');
+        res.render("newsfiles/newsitems.ejs", {allnews: news });
+    } catch (err) {
+        console.error('Error retrieving news data:', err);
+        res.status(500).send('Internal server error');
+    }
 };
 
 module.exports.newsPostForm = (req, res) => {
