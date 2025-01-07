@@ -3,10 +3,9 @@ const path = require('path');
 const expressError = require("../utils/expressErrors.js");
 const redis = require('redis');
 const redisClient = redis.createClient({
-  url: 'redis://redis-16422.c10.us-east-1-4.ec2.redns.redis-cloud.com:16422',
-  password:"WzGQfUjCYvGIu0v07RNBrSmDNa8VGmXf",
+  url: process.env.REDIS_URI,
+  password:process.env.REDIS_PASSWORD
 });
-
 redisClient.connect().then(() => {
   console.log("Redis connected successfully!");
 }).catch(err => {
