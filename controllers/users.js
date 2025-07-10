@@ -10,7 +10,7 @@ module.exports.signupUser = async (req, res) => {
             email, username
         });
         const registeredUser = await User.register(newUser, password);
-        console.log(registeredUser);
+        // console.log(registeredUser);
         // register ke saath saath user ko login bhi kar rahe hai
         req.login(registeredUser, (err) => {
             if (err) {

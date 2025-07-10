@@ -16,7 +16,7 @@ async function main() {
 
 const newsdb = async () => {
     await news.deleteMany({});
-    console.log("data deleted successfully");
+    // console.log("data deleted successfully");
     if (newsdata) 
     {
         const updatedData = newsdata.map((obj) => ({
@@ -24,7 +24,7 @@ const newsdb = async () => {
             owner: "66c6f56f96ce0d93d786a88a"
         }));
         await news.insertMany(updatedData);
-        console.log("data inserted successfully");
+        // console.log("data inserted successfully");
     } 
     else 
     {

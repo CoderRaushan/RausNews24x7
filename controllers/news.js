@@ -1,28 +1,11 @@
 const news = require("../models/news.js");
 const path = require('path');
 const expressError = require("../utils/expressErrors.js");
-const redis = require('redis');
-const redisClient = redis.createClient({
-  url: process.env.REDIS_URI,
-  password:process.env.REDIS_PASSWORD
-});
-redisClient.connect().then(() => {
-  console.log("Redis connected successfully!");
-}).catch(err => {
-  console.error('Error connecting to Redis:', err);
-});
-module.exports = redisClient;
 module.exports.index = async (req, res) => 
 {
     try {
-        const cachedData = await redisClient.get('newsData');
-        if (cachedData) {
-            return res.render("newsfiles/newsitems.ejs", { allnews: JSON.parse(cachedData) });
-        }
-        const news = await news.find({});
-        await redisClient.set('newsData', JSON.stringify(cachedNews)); 
-        console.log('News data cached successfully.');
-        res.render("newsfiles/newsitems.ejs", {allnews: news });
+        const newss= await news.find({});
+        res.render("newsfiles/newsitems.ejs", {allnews: newss });
     } catch (err) {
         console.error('Error retrieving news data:', err);
         res.status(500).send('Internal server error');
@@ -56,7 +39,7 @@ module.exports.newsShow = async (req, res) => {
         req.flash("error", "Post you requested for does not exists!");
         res.redirect("/news");
     }
-    console.log(newsItem);
+    // console.log(newsItem);
 };
 
 module.exports.createNews = async (req, res, next) => {
@@ -67,7 +50,7 @@ module.exports.createNews = async (req, res, next) => {
         newnews.owner = req.user._id;
         newnews.image = { url, filename };
         await newnews.save();
-        console.log("data saved successfully");
+        // console.log("data saved successfully");
         req.flash("success", "New Post Created!");
         res.redirect("/news");
     }
@@ -114,10 +97,10 @@ module.exports.UpdateNews = async (req, res) => {
 module.exports.deleteNews = async (req, res) => {
     const { id } = req.params;
     if (id) {
-        console.log("about to delete");
-        console.log(id);
+        // console.log("about to delete");
+        // console.log(id);
         const deletedNews = await news.findByIdAndDelete(id);
-        console.log("deleted successfully", deletedNews);
+        // console.log("deleted successfully", deletedNews);
         req.flash("delete", "Post Is Deleted");
         res.redirect("/news");
     }
@@ -129,104 +112,103 @@ module.exports.deleteNews = async (req, res) => {
 
 module.exports.TrendingNews = async (req, res) => {
     const cricketnews = await news.find({ category: { $regex: 'Trending', $options: 'i' } });
-    console.log(cricketnews);
+     
     res.render("newsfiles/newsitems.ejs", { allnews: cricketnews });
 }
 module.exports.EntertainmentNews = async (req, res) => {
     const cricketnews = await news.find({ category: { $regex: 'Entertainment', $options: 'i' } });
-    console.log(cricketnews);
+     
     res.render("newsfiles/newsitems.ejs", { allnews: cricketnews });
 }
 
 module.exports.cricketNews = async (req, res) => {
     const cricketnews = await news.find({ category: { $regex: 'Cricket', $options: 'i' } }); // Case-insensitive search
-    console.log(cricketnews);
+     
     res.render("newsfiles/newsitems.ejs", { allnews: cricketnews });
 };
 
 module.exports.FootBallNews = async (req, res) => {
     const cricketnews = await news.find({ category: { $regex: 'FootBall', $options: 'i' } });
-    console.log(cricketnews);
+     
     res.render("newsfiles/newsitems.ejs", { allnews: cricketnews });
 }
 
 module.exports.CitiesNews = async (req, res) => {
     const cricketnews = await news.find({ category: { $regex: 'Cities', $options: 'i' } });
-    console.log(cricketnews);
+     
     res.render("newsfiles/newsitems.ejs", { allnews: cricketnews });
 }
 module.exports.EducationNews = async (req, res) => {
     const cricketnews = await news.find({ category: { $regex: 'Education', $options: 'i' } });
-    console.log(cricketnews);
+     
     res.render("newsfiles/newsitems.ejs", { allnews: cricketnews });
 }
 module.exports.WorldNewsNews = async (req, res) => {
     const cricketnews = await news.find({ category: { $regex: 'WorldNews', $options: 'i' } });
-    console.log(cricketnews);
+     
     res.render("newsfiles/newsitems.ejs", { allnews: cricketnews });
 }
 module.exports.ScienceNews = async (req, res) => {
     const cricketnews = await news.find({ category: { $regex: 'Science', $options: 'i' } });
-    console.log(cricketnews);
+     
     res.render("newsfiles/newsitems.ejs", { allnews: cricketnews });
 }
 module.exports.ElectionNews = async (req, res) => {
     const cricketnews = await news.find({ category: { $regex: 'Election', $options: 'i' } });
-    console.log(cricketnews);
+     
     res.render("newsfiles/newsitems.ejs", { allnews: cricketnews });
 }
 module.exports.WeatherNews = async (req, res) => {
     const cricketnews = await news.find({ category: { $regex: 'Weather', $options: 'i' } });
-    console.log(cricketnews);
+     
     res.render("newsfiles/newsitems.ejs", { allnews: cricketnews });
 }
 module.exports.TechnologyNews = async (req, res) => {
     const cricketnews = await news.find({ category: { $regex: 'Technology', $options: 'i' } });
-    console.log(cricketnews);
+     
     res.render("newsfiles/newsitems.ejs", { allnews: cricketnews });
 }
 
 module.exports.BusinessNews = async (req, res) => {
     const cricketnews = await news.find({ category: { $regex: 'Business', $options: 'i' } });
-    console.log(cricketnews);
+     
     res.render("newsfiles/newsitems.ejs", { allnews: cricketnews });
 }
 module.exports.HealthNews = async (req, res) => {
     const cricketnews = await news.find({ category: { $regex: 'Health', $options: 'i' } });
-    console.log(cricketnews);
+     
     res.render("newsfiles/newsitems.ejs", { allnews: cricketnews });
 }
 
 module.exports.SportsNews = async (req, res) => {
     const cricketnews = await news.find({ category: { $regex: 'Sports', $options: 'i' } });
-    console.log(cricketnews);
+     
     res.render("newsfiles/newsitems.ejs", { allnews: cricketnews });
 }
 module.exports.EnvironmentNews = async (req, res) => {
     const cricketnews = await news.find({ category: { $regex: 'Environment', $options: 'i' } });
-    console.log(cricketnews);
+     
     res.render("newsfiles/newsitems.ejs", { allnews: cricketnews });
 }
  
 module.exports.CrimeNews= async (req, res) => {
     const cricketnews = await news.find({ category: { $regex: 'Crime', $options: 'i' } });
-    console.log(cricketnews);
+     
     res.render("newsfiles/newsitems.ejs", { allnews: cricketnews });
 }
  
 module.exports.LifestyleNews = async (req, res) => {
     const cricketnews = await news.find({ category: { $regex: 'Lifestyle', $options: 'i' } });
-    console.log(cricketnews);
+     
     res.render("newsfiles/newsitems.ejs", { allnews: cricketnews });
 }
  
 module.exports.OpinionNews = async (req, res) => {
     const cricketnews = await news.find({ category: { $regex: 'Opinion', $options: 'i' } });
-    console.log(cricketnews);
+     
     res.render("newsfiles/newsitems.ejs", { allnews: cricketnews });
 }
 module.exports.sitemapNews = async (req, res) => {
-    console.log("Serving sitemap.xml file");
     const filePath = path.join(__dirname, '../views/newsfiles/sitemap.xml');
     res.sendFile(filePath, (err) => {
         if (err) {

@@ -23,8 +23,8 @@ const LocalStratgy=require("passport-local");
 const User=require("./models/user.js");
 const dblink=process.env.ATLASDB_URL;
 // const redis = require('redis');
-const redisClient=require("./controllers/news.js")
-const News=require('./models/news.js')
+// const redisClient=require("./controllers/news.js")
+// const News=require('./models/news.js')
 // Middleware to parse URL-encoded data
 app.use(bodyParser.urlencoded({ extended: true }));
 // Set view engine
@@ -82,22 +82,21 @@ passport.deserializeUser(User.deserializeUser());
 // });
 
 
- async function cacheDataOnStartup() 
- {
-  try {
-    cachedNews = await News.find({});
-    await redisClient.set('newsData', JSON.stringify(cachedNews)); 
-    console.log('News data cached successfully.');
-  } catch (err) 
-  {
-    console.error('Error caching news data:', err);
-  }
-};
+//  async function cacheDataOnStartup() 
+//  {
+//   try {
+//     cachedNews = await News.find({});
+//     await redisClient.set('newsData', JSON.stringify(cachedNews)); 
+//     console.log('News data cached successfully.');
+//   } catch (err) 
+//   {
+//     console.error('Error caching news data:', err);
+//   }
+// };
 
 async function main() {
     try {
       await mongoose.connect(dblink); 
-      
     } catch (err) {
       console.error('Error connecting to MongoDB or caching data:', err);
     }
@@ -143,6 +142,6 @@ app.use((err, req, res, next) => {
 
 
 app.listen(8890,async () => {
-    await cacheDataOnStartup(); 
+    // await cacheDataOnStartup(); 
     console.log("port is listenning at 8890");
 });

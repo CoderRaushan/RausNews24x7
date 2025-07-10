@@ -1,14 +1,14 @@
 const news = require("../models/news.js");
 const Review = require("../models/newsReview.js");
 module.exports.postReview=async (req, res) => { //note (/news/:id/reviews) stands for "/" here
-    console.log(req.body);
+    // console.log(req.body);
     let newsItem = await news.findById(req.params.id);
     let newReview = new Review(req.body.newsreview);
     newReview.author=req.user._id;
     newsItem.reviews.push(newReview);
     await newReview.save();
     await newsItem.save();
-    console.log("new review added");
+    // console.log("new review added");
     res.redirect(`/news/${newsItem._id}`);
 };
 
