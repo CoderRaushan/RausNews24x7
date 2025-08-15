@@ -235,9 +235,12 @@ It exists to provide a simple, interactive, and community-driven space for shari
 
 ## Screenshots / Demo
 
-![Home Page](public/screenshots/homepage.png)
-![Post News](public/screenshots/postnews.png)
-![News Details](public/screenshots/newsdetails.png)
-![Mobile View](public/screenshots/mobileview.png)
+![Home Page](https://github.com/CoderRaushan/RausNews24x7/blob/main/public/photos/Home.png)
+![Register](https://github.com/CoderRaushan/RausNews24x7/blob/main/public/photos/Signup.png)
+![Login](https://github.com/CoderRaushan/RausNews24x7/blob/main/public/photos/Signin.png)
+![Create Post](https://github.com/CoderRaushan/RausNews24x7/blob/main/public/photos/Create.png)
+![Show Post](https://github.com/CoderRaushan/RausNews24x7/blob/main/public/photos/Show.png)
+![Review Post](https://github.com/CoderRaushan/RausNews24x7/blob/main/public/photos/Review.png)
+![News Category](https://github.com/CoderRaushan/RausNews24x7/blob/main/public/photos/Category.png)
 
 <!-- Add your own screenshots in the public/screenshots/ folder and update the paths above
