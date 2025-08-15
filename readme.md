@@ -11,7 +11,6 @@ RausNews24X7 is a modern news platform where users can post news articles, attac
 It exists to provide a simple, interactive, and community-driven space for sharing and discussing news.
 
 ---
----
 
 ## Features
 
@@ -83,8 +82,6 @@ It exists to provide a simple, interactive, and community-driven space for shari
     └── Users/
 ```
 
----
-
 
 ## Installation
 
@@ -96,7 +93,7 @@ It exists to provide a simple, interactive, and community-driven space for shari
 **Steps:**
 1. Clone the repository:
    ```sh
-   git clone <your-repo-url>
+   git clone https://github.com/CoderRaushan/RausNews24x7.git
    cd RausNews24X7
    ```
 2. Install dependencies:
@@ -110,7 +107,6 @@ It exists to provide a simple, interactive, and community-driven space for shari
    CLOUD_NAME=<your-cloudinary-cloud-name>
    API_KEY=<your-cloudinary-api-key>
    SECRET_KEY=<your-cloudinary-api-secret>
-   NODE_ENV=development
    ```
 4. (Optional) Seed the database:
    ```sh
@@ -151,8 +147,6 @@ It exists to provide a simple, interactive, and community-driven space for shari
 
 ---
 
----
-
 ## File Uploads
 
 - Images, videos, PDFs, and documents are uploaded to Cloudinary.
@@ -160,15 +154,12 @@ It exists to provide a simple, interactive, and community-driven space for shari
 
 ---
 
----
 
 ## Customization
 
 - **Categories:** To add or remove news categories, update the `category` enum in [`models/news.js`](models/news.js) and the category list in the EJS forms.
 - **Styling:** Modify [`public/css/style.css`](public/css/style.css) for custom styles.
 - **Footer & Navbar:** Edit [`views/includes/footer.ejs`](views/includes/footer.ejs) and [`views/includes/navbar.ejs`](views/includes/navbar.ejs).
-
----
 
 ---
 
@@ -218,7 +209,6 @@ It exists to provide a simple, interactive, and community-driven space for shari
 ---
 
 
-
 ## Contributing
 
 1. Fork the repository.
@@ -238,8 +228,8 @@ It exists to provide a simple, interactive, and community-driven space for shari
 
 **Author:** Raushan Kumar  
 - GitHub: [CoderRaushan](https://github.com/CoderRaushan)
-- Email: coderraushan@gmail.com
-- LinkedIn: [linkedin.com/in/coderraushan](https://linkedin.com/in/coderraushan)
+- Email: raushankumar23082004@gmail.com
+- LinkedIn: (https://www.linkedin.com/in/raushan-kumar-964a75255/)
 
 ---
 
