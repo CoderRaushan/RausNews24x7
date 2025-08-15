@@ -11,7 +11,6 @@ RausNews24X7 is a modern news platform where users can post news articles, attac
 It exists to provide a simple, interactive, and community-driven space for sharing and discussing news.
 
 ---
----
 
 ## Features
 
