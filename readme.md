@@ -229,7 +229,7 @@ It exists to provide a simple, interactive, and community-driven space for shari
 **Author:** Raushan Kumar  
 - GitHub: [CoderRaushan](https://github.com/CoderRaushan)
 - Email: raushankumar23082004@gmail.com
-- LinkedIn: [linkedin.com/in/coderraushan](https://www.linkedin.com/in/raushan-kumar-964a75255/)
+- LinkedIn: (https://www.linkedin.com/in/raushan-kumar-964a75255/)
 
 ---
 
