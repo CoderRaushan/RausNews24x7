@@ -82,8 +82,6 @@ It exists to provide a simple, interactive, and community-driven space for shari
     └── Users/
 ```
 
----
-
 
 ## Installation
 
@@ -149,8 +147,6 @@ It exists to provide a simple, interactive, and community-driven space for shari
 
 ---
 
----
-
 ## File Uploads
 
 - Images, videos, PDFs, and documents are uploaded to Cloudinary.
@@ -158,15 +154,12 @@ It exists to provide a simple, interactive, and community-driven space for shari
 
 ---
 
----
 
 ## Customization
 
 - **Categories:** To add or remove news categories, update the `category` enum in [`models/news.js`](models/news.js) and the category list in the EJS forms.
 - **Styling:** Modify [`public/css/style.css`](public/css/style.css) for custom styles.
 - **Footer & Navbar:** Edit [`views/includes/footer.ejs`](views/includes/footer.ejs) and [`views/includes/navbar.ejs`](views/includes/navbar.ejs).
-
----
 
 ---
 
@@ -216,7 +209,6 @@ It exists to provide a simple, interactive, and community-driven space for shari
 ---
 
 
-
 ## Contributing
 
 1. Fork the repository.
@@ -236,8 +228,8 @@ It exists to provide a simple, interactive, and community-driven space for shari
 
 **Author:** Raushan Kumar  
 - GitHub: [CoderRaushan](https://github.com/CoderRaushan)
-- Email: coderraushan@gmail.com
-- LinkedIn: [linkedin.com/in/coderraushan](https://linkedin.com/in/coderraushan)
+- Email: raushankumar23082004@gmail.com
+- LinkedIn: [linkedin.com/in/coderraushan](https://www.linkedin.com/in/raushan-kumar-964a75255/)
 
 ---
 
